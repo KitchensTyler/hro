@@ -4,7 +4,7 @@ const originRouter = express.Router()
 const Candidate = require('../models/candidate.js')
 
 //get all candidates
-originRouter.get("/search", (req, res, next) => {
+originRouter.get("/", (req, res, next) => {
     Candidate.find((err, candidates) => {
         if(err){
             res.status(500)
@@ -15,8 +15,8 @@ originRouter.get("/search", (req, res, next) => {
 })
 
 //get one candidate
-originRouter.get('/search/:candidateId', (req, res, next) => {
-    Candidate.findOne(
+originRouter.get('/:candidateId', (req, res, next) => {
+    Candidate.find(
         {_id: req.params.candidateId},
         (err, candidate) => {
             if(err){
@@ -29,7 +29,7 @@ originRouter.get('/search/:candidateId', (req, res, next) => {
 })
 
 //post candidate
-originRouter.post('/add', (req, res, next) => {
+originRouter.post('/', (req, res, next) => {
      const newCandidate = new Candidate(req.body)
      newCandidate.save((err, savedCandidate) => {
         if(err){
@@ -41,7 +41,7 @@ originRouter.post('/add', (req, res, next) => {
 })
 
 //update candidate
-originRouter.put('/search/:candidateId', (req, res, next) => {
+originRouter.put('/:candidateId', (req, res, next) => {
     Candidate.findOneAndUpdate(
         {_id: req.params.candidateId},
         req.body,

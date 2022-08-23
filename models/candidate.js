@@ -26,16 +26,12 @@ const candidateSchema = new Schema({
         type: Boolean,
         required: true
     },
-    preInterview:{
-        type: Boolean,
-        required: true
-    },
     initialInterview:{
-        type: Boolean,
+        type: Date,
         required: true
     },
-    finalInterview:{
-        type: Boolean,
+    followUpInterview:{
+        type: Date,
         required: true
     },
     offerSent:{
