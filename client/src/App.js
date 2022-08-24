@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import axios from 'axios'
 import {Routes, Route} from "react-router-dom"
 import {DataContextProvider} from "./DataContext"
 import Navbar from "./components/Navbar"

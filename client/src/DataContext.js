@@ -2,12 +2,20 @@ import React, {useState, useEffect} from "react"
 import axios from "axios"
 
 
+
 const DataContext = React.createContext()
 
 function DataContextProvider(props){
 
+   
     const [candidates, setCandidates] = useState([])
+    const [oneCandidate, setOneCandidate] = useState([])
 
+    function getOneCandidate(_id){
+        axios.get(`http://localhost:9000/candidates/${_id}`)
+        .then(res => setOneCandidate(res.data))
+        .catch(err => console.log(err))
+    }
 
     function getCandidates(){
         axios.get("http://localhost:9000/candidates")
@@ -51,6 +59,8 @@ function DataContextProvider(props){
             editCandidate,
             deleteCandidate,
             addCandidate,
+            getOneCandidate,
+            oneCandidate
         }}>
             {props.children}
         </DataContext.Provider>

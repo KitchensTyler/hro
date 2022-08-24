@@ -6,7 +6,7 @@ const Candidate = (props) => {
   return (
     <>
         <Link className='can-card' to = {`/candidateCard/${_id}`}><h2>{firstName} {lastName}</h2></Link>
-        <p>{_id}</p>
+        <p> Id: {_id}</p>
     </>
   )
 }

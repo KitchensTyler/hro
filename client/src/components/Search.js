@@ -6,6 +6,7 @@ function Search(){
 
     return(
         <div className="search-form">
+            
             <form>
 
             

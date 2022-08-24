@@ -1,19 +1,17 @@
 import React, {useContext, useEffect} from "react"
 import { DataContext } from "../DataContext"
-import CandidateCard from "./CandidateCard"
 import Candidate from "./Candidate"
 
 
-function CandidateList(props){
+function CandidateList(){
 
 
     const {getCandidates, candidates} = useContext(DataContext)
-    const {firstName, lastName, _id} = props
 
     useEffect(() => {
         getCandidates()
         console.log("candidates", candidates)
-    }, [])
+    }, )
 
     return(
         
