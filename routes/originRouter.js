@@ -57,5 +57,16 @@ originRouter.put('/:candidateId', (req, res, next) => {
     )
 })
 
+//delete candidate
+originRouter.delete('/:candidateId', (req, res, next) => {
+    Candidate.findOneAndDelete({_id: req.params.candidateId}, (err, deletedCandidate) => {
+        if (err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(`Successfully deleted candidate ${deletedCandidate.firstName} ${deletedCandidate.lastName} from the database.`)
+    })
+})
+
 module.exports = originRouter
 

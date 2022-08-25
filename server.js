@@ -9,7 +9,9 @@ app.use(morgan('dev'))
 require('dotenv').config()
 
 //connect to db
-mongoose.connect(`mongodb+srv://tonyeherrera:${process.env.MONGO_PW}@cluster0.v8uoayq.mongodb.net/?retryWrites=true&w=majority`, ()=> console.log("Connected to DB"))
+mongoose.connect(`mongodb+srv://tonyeherrera:SakApFet1!@cluster0.v8uoayq.mongodb.net/?retryWrites=true&w=majority`, ()=> console.log("Connected to DB"))
+
+// ${process.env.MONGO_PW}
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000" ); // update to match the domain you will make the request from

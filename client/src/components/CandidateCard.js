@@ -11,7 +11,7 @@ export default function CandidateCard(props){
     useEffect(() => {
         getOneCandidate(_id)
         console.log(oneCandidate)
-    }, )
+    }, [])
 
     
     return(

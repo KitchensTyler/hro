@@ -47,6 +47,10 @@ function DataContextProvider(props){
         .catch(err => console.log(err))
     }
 
+    // function filterByName(){
+
+    // }
+
     useEffect(() => {
         getCandidates()
     },[])

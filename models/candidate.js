@@ -28,15 +28,15 @@ const candidateSchema = new Schema({
     },
     initialInterview:{
         type: Date,
-        required: true
+       
     },
     followUpInterview:{
         type: Date,
-        required: true
+        
     },
     offerSent:{
         type:Boolean,
-        required:true
+        
     },
     hireDate:{
         type:Date,

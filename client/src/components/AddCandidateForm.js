@@ -8,7 +8,7 @@ export default function AddCandidateForm(props){
         resumeSubmitted: props.resumeSubmitted || true, coverLetterSubmitted: props.coverLetterSubmitted || true, initialInterview: props.initialInterview || "", followUpInterview: props.followUpInterview || "", 
         offerSent: props.offerSent || false, hireDate: props.hireDate || ""
     }
-    const {addCandidate} =useContext(DataContext)
+    const {addCandidate} = useContext(DataContext)
     const [inputs, setInputs] = useState(initInputs)
     
     
@@ -25,8 +25,9 @@ export default function AddCandidateForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        addCandidate(inputs, props._id)
         setInputs(initInputs)
+        props.submit(inputs, props._id)
+        props.toggle()
     }
 
 
@@ -113,7 +114,7 @@ export default function AddCandidateForm(props){
                 value={inputs.hireDate}
                 onChange={handleChange} /> 
 
-        <button>Submit Candidate</button>
+        <button>props.btnText</button>
             </form>
         </div>
     )
