@@ -1,13 +1,16 @@
 import React, {useState, useContext} from 'react'
 import { DataContext } from '../DataContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import AddCandidateForm from './AddCandidateForm'
 
 const CandidateInfo = (props) => {
 
     const navigate = useNavigate()
+    const {updates} = useParams()
 
-    const {deleteCandidate, editCandidate} = useContext(DataContext)
+    
+
+    const {deleteCandidate, editCandidate, setUpdateCandidate} = useContext(DataContext)
 
     const {
         firstName,
@@ -30,9 +33,32 @@ const CandidateInfo = (props) => {
             console.log(toggle)
         }
 
+        function changeCandidate(updates, candidateId){
+            editCandidate(updates, candidateId)
+            console.log(setUpdateCandidate)
+            setUpdateCandidate({
+                firstname:"",
+                lastname:"",
+                applicationDate: "",
+                applicationReviewed: "",
+                resumeSubmitted: "",
+                coverLetterSubmitted: "",
+                initialInterview:  "",
+                followUpInterview: "",
+                offerSent: "",
+                hireDate: ""
+            })
+            setEditToggle(false)
+        }
+
     function remove(){
         deleteCandidate(_id)
         navigate("/candidateList")
+    }
+
+    function handleChange(event){
+        const {name, value} = event.target
+        setUpdateCandidate(prevThing => ({...prevThing, [name]: value}))
     }
 
   return (
@@ -64,8 +90,8 @@ const CandidateInfo = (props) => {
             </>
             :
             <>
-                <AddCandidateForm {...props} submit={editCandidate} toggle={toggle} _id={_id} btnText="SubmitEdit"/>
-                <button onClick={toggle}>X</button>
+                <AddCandidateForm {...props} submit={changeCandidate} btnText="SubmitEdit" onchange={handleChange}/>
+                <button onClick={toggle}>Exit</button>
             </>
         }
     </div>

@@ -10,6 +10,7 @@ function DataContextProvider(props){
    
     const [candidates, setCandidates] = useState([])
     const [oneCandidate, setOneCandidate] = useState([])
+    const [updateCandidate, setUpdateCandidate] = useState({})
 
     function getOneCandidate(_id){
         axios.get(`http://localhost:9000/candidates/${_id}`)
@@ -64,7 +65,9 @@ function DataContextProvider(props){
             deleteCandidate,
             addCandidate,
             getOneCandidate,
-            oneCandidate
+            oneCandidate,
+            updateCandidate,
+            setUpdateCandidate,
         }}>
             {props.children}
         </DataContext.Provider>

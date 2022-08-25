@@ -114,7 +114,7 @@ export default function AddCandidateForm(props){
                 value={inputs.hireDate}
                 onChange={handleChange} /> 
 
-        <button>props.btnText</button>
+        <button>{props.btnText}</button>
             </form>
         </div>
     )

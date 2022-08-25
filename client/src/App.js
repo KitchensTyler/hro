@@ -12,7 +12,7 @@ import CandidateList from "./components/CandidateList"
 function App() {
     const [candidates, setCandidates] = useState([])
 
-    const {addCandidate} = useContext(DataContext)
+    const {addCandidate, changeCandidate} = useContext(DataContext)
 
     return (
       <>
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element = {<Home/>}/>
             <Route path="/add" element = {<AddCandidateForm submit={addCandidate} btnText="Add Candidate"/>}/>
             <Route path="/search" element = {<Search />}/>
-            <Route path="/candidateList" element = {<CandidateList />}/> 
+            <Route path="/candidateList" element = {<CandidateList submit={changeCandidate}/>}/> 
             <Route path="/candidateCard/:_id/" element = {<CandidateCard />}/>
           </Routes>
           </div>

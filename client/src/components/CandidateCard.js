@@ -6,12 +6,12 @@ import CandidateInfo from "./CandidateInfo"
 export default function CandidateCard(props){
 
     const {_id} = useParams()
-    const { getOneCandidate, oneCandidate} = useContext(DataContext)
+    const { getOneCandidate, oneCandidate, candidates } = useContext(DataContext)
     
     useEffect(() => {
         getOneCandidate(_id)
         console.log(oneCandidate)
-    }, [])
+    }, [candidates])
 
     
     return(
