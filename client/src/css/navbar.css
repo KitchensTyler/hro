@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.navbar{
+    max-width:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(8,1,13,1) 10%, rgb(58, 56, 50) 80%, rgb(213, 210, 206) 100%);
+}
+
+
+
+.navbar--label{
+    color:white;
+    text-shadow: 1px 1px 20px rgb(41, 38, 38);
+    margin:0px 15px 0 15px;
+    font-weight: 400;
+}

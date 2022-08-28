@@ -5,20 +5,30 @@ import Candidate from "./Candidate"
 
 function CandidateList(){
 
-    const {getCandidates, candidates} = useContext(DataContext)
-    const [input, setInput] = useState({name:``})
+    const {getCandidates, candidates, searchCandidates} = useContext(DataContext)
+    const [input, setInput] = useState({name:''})
 
     function handleChange(e){
         const {name, value} = e.target
-        setInput(prevInput => {
+        setInput(prevInputs => {
             return{
-                ...prevInput,
-                [name]: value}})
+                ...prevInputs,
+                [name]:value
+            }
+        })
+        
     }
 
     function handleSearch(e){
         e.preventDefault()
-        console.log(input)
+        console.log(input.name)
+        if(input.name === ''){
+            console.log("not filtered")
+            getCandidates()
+        }else{
+            console.log(`filtered by ${input.name}`)
+            searchCandidates(input.name)
+        }
     }
 
     useEffect(() => {

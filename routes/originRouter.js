@@ -14,6 +14,22 @@ originRouter.get("/", (req, res, next) => {
     })
 })
 
+//filter candidates by name string
+originRouter.get('/search', (req, res, next) => {
+    const { candidate } = req.query
+    const pattern = new RegExp(candidate)
+    Candidate.find(
+        {fullName: { $regex: pattern, $options: 'i'}},
+        (err, candidates) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(candidates)
+        }
+    )
+})
+
 //get one candidate
 originRouter.get('/:candidateId', (req, res, next) => {
     Candidate.find(

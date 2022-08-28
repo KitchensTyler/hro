@@ -13,8 +13,7 @@ const CandidateInfo = (props) => {
     const {deleteCandidate, editCandidate, setUpdateCandidate} = useContext(DataContext)
 
     const {
-        firstName,
-        lastName, 
+        fullName, 
         applicationDate,
         applicationReviewed,
         resumeSubmitted,
@@ -37,8 +36,7 @@ const CandidateInfo = (props) => {
             editCandidate(updates, candidateId)
             console.log(setUpdateCandidate)
             setUpdateCandidate({
-                firstname:"",
-                lastname:"",
+                fullName:"",
                 applicationDate: "",
                 applicationReviewed: "",
                 resumeSubmitted: "",
@@ -61,11 +59,15 @@ const CandidateInfo = (props) => {
         setUpdateCandidate(prevThing => ({...prevThing, [name]: value}))
     }
 
+    function back(){
+        navigate("/candidateList")
+    }
+
   return (
     <div>
         { !editToggle ?
             <>
-                <h2> {lastName}, {firstName} </h2>
+                <h2> {fullName}</h2>
                 <p> ID #: {_id} </p>
                 <div>
                     <p> Application Date: {applicationDate} </p>
@@ -84,6 +86,7 @@ const CandidateInfo = (props) => {
                     <p> Effective Hire Date: {hireDate} </p>
                 </div>
                 <div>
+                    <button onClick={back}>Back</button>
                     <button onClick={toggle}>Edit</button>
                     <button onClick={remove}>Delete</button>
                 </div>

@@ -18,6 +18,14 @@ function DataContextProvider(props){
         .catch(err => console.log(err))
     }
 
+    
+    function searchCandidates(name){
+        axios.get(`http://localhost:9000/candidates/search?candidate=${name}`)
+        .then(res => setCandidates(res.data))
+        .catch(err => console.log(err))
+    }
+    
+
     function getCandidates(){
         axios.get("http://localhost:9000/candidates")
         .then(res => setCandidates(res.data))
@@ -48,10 +56,6 @@ function DataContextProvider(props){
         .catch(err => console.log(err))
     }
 
-    // function filterByName(){
-
-    // }
-
     useEffect(() => {
         getCandidates()
     },[])
@@ -68,6 +72,7 @@ function DataContextProvider(props){
             oneCandidate,
             updateCandidate,
             setUpdateCandidate,
+            searchCandidates
         }}>
             {props.children}
         </DataContext.Provider>

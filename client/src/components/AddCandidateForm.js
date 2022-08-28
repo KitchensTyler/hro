@@ -4,7 +4,7 @@ import { DataContext } from "../DataContext"
 
 export default function AddCandidateForm(props){
     const initInputs = {
-        firstName: props.firstName || "", lastName: props.lastName || "", applicationDate: props.applicationDate || "", applicationReviewed: props.applicationReviewed || true,
+        fullName: props.fullName || "", applicationDate: props.applicationDate || "", applicationReviewed: props.applicationReviewed || true,
         resumeSubmitted: props.resumeSubmitted || true, coverLetterSubmitted: props.coverLetterSubmitted || true, initialInterview: props.initialInterview || "", followUpInterview: props.followUpInterview || "", 
         offerSent: props.offerSent || false, hireDate: props.hireDate || ""
     }
@@ -36,17 +36,10 @@ export default function AddCandidateForm(props){
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name="firstName"
-                    value={inputs.firstName}
+                    name="fullName"
+                    value={inputs.fullName}
                     onChange={handleChange}
-                    placeholder="First Name" />
-
-                <input
-                type="text"
-                name="lastName"
-                value={inputs.lastName}
-                onChange={handleChange}
-                placeholder="Last Name" />
+                    placeholder="Full Name" />
 
 
             <label for="resumeSubmitted"> Resume Submitted: </label>

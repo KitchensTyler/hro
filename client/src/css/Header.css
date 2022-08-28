@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.header{
+    width:100%;
+    display:flex;
+    color:azure;
+    align-items: center;
+    font-family: Syncopate, sans-serif ;
+    height:200px;
+    background: url("https://getwallpapers.com/wallpaper/full/d/b/0/1116712-most-popular-black-3d-background-1920x1080-for-tablet.jpg");
+    background-size: cover;
+    background-position: 20% 30%;
+    text-shadow: 1px 1px 10px rgb(152, 154, 171);
+}
+
+.header > h1{
+    font-size: 50px;
+    margin:10px 30px 10px 20px;
+ 
+}
