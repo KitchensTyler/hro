@@ -4,23 +4,58 @@
 
 body {
     box-sizing: border-box;
+    margin:0;
+    padding:0;
 }
 
-.header{
-    width:100%;
-    display:flex;
-    color:azure;
-    align-items: center;
-    font-family: Syncopate, sans-serif ;
-    height:200px;
-    background: url("https://getwallpapers.com/wallpaper/full/d/b/0/1116712-most-popular-black-3d-background-1920x1080-for-tablet.jpg");
-    background-size: cover;
-    background-position: 20% 30%;
-    text-shadow: 1px 1px 10px rgb(152, 154, 171);
+@media screen and (max-width:499px){
+    .header{
+        width:100%;
+        margin:0;
+        padding:0;
+        display:flex;
+        color:azure;
+        align-items: center;
+        font-family: Syncopate, sans-serif ;
+        font-size:10px;
+        height:200px;
+        background: url("https://getwallpapers.com/wallpaper/full/d/b/0/1116712-most-popular-black-3d-background-1920x1080-for-tablet.jpg");
+        background-size: cover;
+        background-position: 20% 30%;
+        text-shadow: 1px 1px 10px rgb(152, 154, 171);
+    }  
 }
 
-.header > h1{
-    font-size: 50px;
-    margin:10px 30px 10px 20px;
- 
+@media screen and (min-width:500px){
+    .header{
+        width:100%;
+        margin:0;
+        padding:0;
+        display:flex;
+        color:azure;
+        align-items: center;
+        font-family: Syncopate, sans-serif ;
+        font-size:15px;
+        height:200px;
+        background: url("https://getwallpapers.com/wallpaper/full/d/b/0/1116712-most-popular-black-3d-background-1920x1080-for-tablet.jpg");
+        background-size: cover;
+        background-position: 20% 30%;
+        text-shadow: 1px 1px 10px rgb(152, 154, 171);
+    }
+}
+
+
+@media screen and (max-width:499px){
+    .header > h1{
+        font-size:30px;
+        margin:5px 20px 5px 20px
+    }
+}
+
+@media screen and (min-width:500px){
+    .header > h1{
+        font-size: 50px;
+        margin:10px 30px 10px 20px;
+    
+    }
 }

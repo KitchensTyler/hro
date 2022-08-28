@@ -6,12 +6,26 @@ body {
     box-sizing: border-box;
 }
 
-.navbar{
-    max-width:100%;
-    display:flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: linear-gradient(180deg, rgba(8,1,13,1) 10%, rgb(58, 56, 50) 80%, rgb(213, 210, 206) 100%);
+@media screen and (max-width:600px){
+    .navbar{
+        max-width:100%;
+        display:flex;
+        justify-content: space-around;
+        align-items:center;
+        font-size:8px;
+        background: linear-gradient(180deg, rgba(8,1,13,1) 10%, rgb(58, 56, 50) 80%, rgb(213, 210, 206) 100%);  
+    }
+}
+
+@media screen and (min-width:601px){
+    .navbar{
+        max-width:100%;
+        display:flex;
+        justify-content: flex-start;
+        font-size:15px;
+        align-items: center;
+        background: linear-gradient(180deg, rgba(8,1,13,1) 10%, rgb(58, 56, 50) 80%, rgb(213, 210, 206) 100%);
+    }
 }
 
 
