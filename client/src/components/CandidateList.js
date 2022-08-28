@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react"
 import { DataContext } from "../DataContext"
 import Candidate from "./Candidate"
-
+import "../css/list.css"
 
 function CandidateList(){
 
@@ -37,12 +37,13 @@ function CandidateList(){
     }, [])
 
     return(        
-        <div>
-            <form onSubmit={handleSearch}>
+        <div className="content">
+            <form onSubmit={handleSearch} className="search">
                 <input name="name" value={input.name} onChange={handleChange} placeholder="Search by Name"/>
                 <button>Search</button>
             </form>
-            <div>
+            <hr/>
+            <div className="candidate">
            {candidates.map( candidate => (
             <Candidate {...candidate}
             key={candidate._id}

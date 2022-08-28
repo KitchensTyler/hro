@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom"
 import { DataContext } from "../DataContext"
 import CandidateInfo from "./CandidateInfo"
 
+
+
 export default function CandidateCard(props){
 
     const {_id} = useParams()
@@ -21,7 +23,7 @@ export default function CandidateCard(props){
                 <CandidateInfo {...candidate}
                 key={candidate._id} />
             ))}
-           </div>
+        </div>
     )
    
 }

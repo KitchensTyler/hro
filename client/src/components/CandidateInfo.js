@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import { DataContext } from '../DataContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import AddCandidateForm from './AddCandidateForm'
+import "../css/info.css"
 
 const CandidateInfo = (props) => {
 
@@ -64,10 +65,11 @@ const CandidateInfo = (props) => {
     }
 
   return (
-    <div>
+    <div className="container">
         { !editToggle ?
             <>
                 <h2> {fullName}</h2>
+                <hr/>
                 <p> ID #: {_id} </p>
                 <div>
                     <p> Application Date: {applicationDate} </p>
@@ -85,7 +87,8 @@ const CandidateInfo = (props) => {
                     <p> Was an offer letter sent? {offerSent ? "Yes" : "No"} </p>
                     <p> Effective Hire Date: {hireDate} </p>
                 </div>
-                <div>
+                <hr/>
+                <div className="buttons">
                     <button onClick={back}>Back</button>
                     <button onClick={toggle}>Edit</button>
                     <button onClick={remove}>Delete</button>

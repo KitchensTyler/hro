@@ -1,0 +1,21 @@
+.content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:10px;
+}
+
+.search{
+    align-self: center;
+}
+
+.content > hr{
+    width:100%;
+    margin: 10px 0 50px 0;
+}
+
+.candidate{
+    display:flex;
+    flex-direction: column;
+    margin-bottom:50px;
+}
