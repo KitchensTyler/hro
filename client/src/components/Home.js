@@ -16,7 +16,9 @@ function Home(){
                 <hr/>
                 <div className="about">
                     <h3>About the Site</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra justo nec ultrices dui. Morbi tristique senectus et netus et malesuada. Ultrices dui sapien eget mi proin sed libero. Donec ultrices tincidunt arcu non. Tristique nulla aliquet enim tortor at. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Ultrices vitae auctor eu augue ut lectus arcu. Massa massa ultricies mi quis hendrerit dolor magna. Gravida neque convallis a cras semper auctor neque. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Mattis aliquam faucibus purus in. Id nibh tortor id aliquet lectus proin nibh nisl. Fermentum odio eu feugiat pretium nibh.</p>
+                    <p>Human Resources Optimizations (HRO) is a tool we created to give HR heros a one stop shop for tracking candidates and important hiring information. 
+                        Made by Tony Herrera and Tyler Kitchens for the VSchool Level 5 Capstone. 
+                    </p>
                 </div>
             </div>
         </div>

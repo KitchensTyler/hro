@@ -4,7 +4,7 @@ body{
 
 @media screen and (min-width:601px){
     .container{
-        width:auto;
+        width: auto;
         margin:5px 5px 50px 5px;
         background-color: rgba(231, 229, 234, 0.632);
         display:flex;
