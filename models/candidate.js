@@ -24,11 +24,11 @@ const candidateSchema = new Schema({
     },
     initialInterview:{
         type: Date,
-       
+        default: Date.now
     },
     followUpInterview:{
         type: Date,
-        
+        default: Date.now
     },
     offerSent:{
         type:Boolean,
@@ -36,6 +36,11 @@ const candidateSchema = new Schema({
     },
     hireDate:{
         type:Date,
+        default: Date.now
+    },
+    status: {
+        type: String,
+        default: "NEW"
     }
 })
 

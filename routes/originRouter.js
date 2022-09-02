@@ -57,31 +57,33 @@ originRouter.post('/', (req, res, next) => {
 })
 
 //update candidate
-originRouter.put('/:candidateId', (req, res, next) => {
+originRouter.put("/:candidateId", (req, res, next ) => {
     Candidate.findOneAndUpdate(
-        {_id: req.params.candidateId},
+        { _id: req.params.candidateId, user: req.auth._id},
         req.body,
-        {new: true},
+        { new: true},
         (err, updatedCandidate) => {
             if(err){
                 res.status(500)
                 return next(err)
             }
-            return res.status(201).send(updatedCandidate)
+            return res.status(200).send(updatedCandidate)
         }
-
     )
 })
 
 //delete candidate
-originRouter.delete('/:candidateId', (req, res, next) => {
-    Candidate.findOneAndDelete({_id: req.params.candidateId}, (err, deletedCandidate) => {
-        if (err){
-            res.status(500)
-            return next(err)
+originRouter.delete("/:candidateId", (req, res, next) => {
+    Candidate.findOneAndDelete(
+        { _id: req.params.candidateId, user: req.auth._id }, 
+        (err, deletedCandidate) => {
+            if(err){
+                res.status(500)
+                return next(err)    
+            }
+            return res.status(200).send(`Successfully deleted Candidate: ${deletedCandidate.title}`)
         }
-        return res.status(200).send(`Successfully deleted candidate ${deletedCandidate.firstName} ${deletedCandidate.lastName} from the database.`)
-    })
+    )
 })
 
 module.exports = originRouter

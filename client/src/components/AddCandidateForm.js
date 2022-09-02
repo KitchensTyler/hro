@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react"
-import { DataContext } from "../DataContext"
+import { DataContext } from "../context/DataContext"
 import "../css/form.css"
 
 export default function AddCandidateForm(props){

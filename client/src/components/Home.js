@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useContext, } from "react"
 import "../css/home.css"
+import { DataContext } from '../context/DataContext'
 
-function Home(){
+export default function Home(){
     
+    const {  user: {username}} = useContext(DataContext)
 
     return(
         <div className="home">
             <div className="home--content">
-                <h1 className="title">Welcome</h1>
+                <h1 className="title">Welcome, {username}!</h1>
                 <hr/>
                 <div className="mission">
                     <h3>Our Mission</h3>
@@ -17,7 +19,7 @@ function Home(){
                 <div className="about">
                     <h3>About the Site</h3>
                     <p>Human Resources Optimizations (HRO) is a tool we created to give HR heros a one stop shop for tracking candidates and important hiring information. 
-                        Made by Tony Herrera and Tyler Kitchens for the VSchool Level 5 Capstone. 
+                       Originally Made by Tony Herrera and Tyler Kitchens for the VSchool Level 5 Capstone, revamped and improved by Tyler Kitchens in the level 6 capstone.
                     </p>
                 </div>
             </div>
@@ -25,4 +27,4 @@ function Home(){
     )
 }
 
-export default Home
+ 

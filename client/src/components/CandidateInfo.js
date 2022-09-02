@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { DataContext } from '../DataContext'
+import { DataContext } from '../context/DataContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import AddCandidateForm from './AddCandidateForm'
 import "../css/info.css"
@@ -7,7 +7,7 @@ import "../css/info.css"
 const CandidateInfo = (props) => {
 
     const navigate = useNavigate()
-    const {updates} = useParams()
+  
 
     
 
@@ -72,7 +72,7 @@ const CandidateInfo = (props) => {
                 <hr/>
                 <p> ID #: {_id} </p>
                 <div>
-                    <p> Application Date: {applicationDate} </p>
+                    <p> Application Date: {new Date(applicationDate).toLocaleDateString()} </p>
                     <p> Application Reviewed? {applicationReviewed ? "Yes" : "No"} </p>
                 </div>
                 <div>
@@ -80,12 +80,12 @@ const CandidateInfo = (props) => {
                     <p> Cover Letter on file? {coverLetterSubmitted ? "Yes" : "No"} </p>
                 </div>
                 <div>
-                    <p> Initial Interview Date: {initialInterview} </p>
-                    <p> Follow-Up Interview Date: {followUpInterview} </p>
+                    <p> Initial Interview Date: {new Date(initialInterview).toLocaleDateString()} </p>
+                    <p> Follow-Up Interview Date: {new Date(followUpInterview).toLocaleDateString()} </p>
                 </div>
                 <div>
                     <p> Was an offer letter sent? {offerSent ? "Yes" : "No"} </p>
-                    <p> Effective Hire Date: {hireDate} </p>
+                    <p> Effective Hire Date: {new Date(hireDate).toLocaleDateString()} </p>
                 </div>
                 <hr/>
                 <div className="buttons">

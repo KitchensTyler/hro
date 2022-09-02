@@ -1,5 +1,5 @@
 import React, {useState, useContext, useEffect} from "react"
-import { DataContext } from "../DataContext"
+import { DataContext } from "../context/DataContext"
 import Candidate from "./Candidate"
 import "../css/list.css"
 
@@ -30,11 +30,6 @@ function CandidateList(){
             searchCandidates(input.name)
         }
     }
-
-    useEffect(() => {
-        getCandidates()
-        console.log("candidates", candidates)
-    }, [])
 
     return(        
         <div className="content">
