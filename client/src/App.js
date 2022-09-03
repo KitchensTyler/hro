@@ -4,12 +4,12 @@ import { DataContext } from "./context/DataContext"
 
 
 import Header from "./components/Header"
-import Home from "./components/Home"
 import AddCandidateForm from "./components/AddCandidateForm"
 import Footer from "./components/Footer"
 import CandidateCard from "./components/CandidateCard"
 import CandidateList from "./components/CandidateList"
 import Navbar from "./components/Navbar"
+import Home from "./components/Home"
 import Auth from "./components/Auth"
 
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -17,10 +17,11 @@ import ProtectedRoute from "./components/ProtectedRoute"
 
 export default function App() {
 
-    const { token, logout, user } = useContext(DataContext)
+    const { token, logout, user, addCandidate, changeCandidate } = useContext(DataContext)
 
     return (
       <>
+
         { token && <Navbar logout={logout}/>}
 
           <Header />
@@ -29,7 +30,7 @@ export default function App() {
           <Routes>
 
             <Route path="/" 
-            element = { token ? <Navigate to="/"/> : <Auth />}
+            element = { token ? <Navigate to="/home"/> : <Auth />}
             />
 
             <Route path="/home" 
@@ -40,20 +41,20 @@ export default function App() {
 
             <Route path="/add" 
             element = {<ProtectedRoute token={token} redirectTo="/">
-              <AddCandidateForm />
+              <AddCandidateForm submit={addCandidate} btnText="Add Candidate"/>
             </ProtectedRoute>
             }/>
 
             <Route path="/candidateList" 
-            element = {<ProtectedRoute token={token} redirectTo='/'>
-              <CandidateList /> 
-            </ProtectedRoute>}
+            element = {
+              <CandidateList submit={changeCandidate} /> 
+            }
             /> 
 
-            <Route path="/candidateCard/:_id/" 
-            element = {<ProtectedRoute token={token} redirectTo="/">
+            <Route path="/candidateList/:_id/" 
+            element = {
               <CandidateCard />
-            </ProtectedRoute>}/>
+            }/>
 
           </Routes>
           </div>

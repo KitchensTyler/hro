@@ -7,9 +7,13 @@ export default function Home(){
     const {  user: {username}} = useContext(DataContext)
 
     return(
+
+        // filter through candidatelist looking for status.NEW = new candidiate 
+
         <div className="home">
             <div className="home--content">
                 <h1 className="title">Welcome, {username}!</h1>
+                <h4>Theres Currently {}, New Candidates to View</h4>
                 <hr/>
                 <div className="mission">
                     <h3>Our Mission</h3>

@@ -40,8 +40,13 @@ const candidateSchema = new Schema({
     },
     status: {
         type: String,
-        default: "NEW"
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }, 
+
 })
 
 module.exports = mongoose.model('Candidate', candidateSchema)

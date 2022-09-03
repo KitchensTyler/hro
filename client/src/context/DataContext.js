@@ -48,6 +48,7 @@ export default function DataContextProvider(props){
             const { user, token } = res.data
             localStorage.setItem("token", token)
             localStorage.setItem("user", JSON.stringify(user))
+            getCandidates()
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,
@@ -82,35 +83,39 @@ export default function DataContextProvider(props){
     }
     
     function getOneCandidate(_id){
-        axios.get(`api/candidates/${_id}`)
+        userAxios.get(`api/candidates/${_id}`)
         .then(res => setOneCandidate(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
     
     function searchCandidates(name){
-        axios.get(`api/candidates/search?candidate=${name}`)
+        userAxios.get(`api/candidates/search?candidate=${name}`)
         .then(res => setCandidates(res.data))
         .catch(err => console.log(err))
     }
     
 
     function getCandidates(){
-        axios.get("/api/candidates")
+        userAxios.get('/api/candidates/')
         .then(res => setCandidates(res.data))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.response.data.errMsg))
     }
 
+
     function addCandidate(newCandidate){
-        axios.post("/api/candidates", newCandidate)
-            .then(res => {
-                setCandidates(prevCandidates => [...prevCandidates, res.data])
+        userAxios.post("/api/candidates", newCandidate)
+            .then( res => {
+              setUserState(prevState => ({
+                ...prevState,
+                candidates: [...prevState.candidates, res.data]
+              }))  
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     function deleteCandidate(candidateId){
-        axios.delete(`api/candidates/${candidateId}`)
+        userAxios.delete(`api/candidates/${candidateId}`)
         .then(res => {
             setCandidates(prevCandidates => prevCandidates.filter(candidate => candidate._id !== candidateId))
         })
@@ -118,13 +123,16 @@ export default function DataContextProvider(props){
     }
 
     function editCandidate(updates, candidateId){
-        axios.put(`api/candidates/${candidateId}`, updates)
+        axios.put(`/candidates/${candidateId}`, updates)
         .then(res => {
             setCandidates(prevCandidates => prevCandidates.map(candidate => candidate._id !== candidateId ? candidate : res.data))
         })
         .catch(err => console.log(err))
     }
 
+    // function submit(newCandidate){
+    //     addCandidate(newCandidate)
+    // }
 
     return(
         <DataContext.Provider value={{
@@ -144,7 +152,8 @@ export default function DataContextProvider(props){
             updateCandidate,
             setUpdateCandidate,
             searchCandidates,
-            userAxios
+            userAxios,
+    
         }}>
             {props.children}
         </DataContext.Provider>

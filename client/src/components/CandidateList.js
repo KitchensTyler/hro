@@ -31,6 +31,11 @@ function CandidateList(){
         }
     }
 
+    useEffect(() => {
+        getCandidates()
+        console.log(candidates)
+    }, [])
+
     return(        
         <div className="content">
             <form onSubmit={handleSearch} className="search">
@@ -39,17 +44,17 @@ function CandidateList(){
             </form>
             <hr/>
             <div className="candidate">
-           {candidates.map( candidate => (
+            {candidates.map( candidate => (
             <Candidate {...candidate}
             key={candidate._id}
             />
            ))}
+
            </div>
         </div>
+        )
         
-    )
+    
 }
 
 export default CandidateList
-
-///candidate list will return firstname, lastname, and _id. clicking onto the names or id should open up the card for each specific employee via <Link />. 

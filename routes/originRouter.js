@@ -33,7 +33,7 @@ originRouter.get('/search', (req, res, next) => {
 //get one candidate
 originRouter.get('/:candidateId', (req, res, next) => {
     Candidate.find(
-        {_id: req.params.candidateId},
+        { _id: req.params.candidateId, user: req.auth._id},
         (err, candidate) => {
             if(err){
                 res.status(500)
@@ -46,6 +46,7 @@ originRouter.get('/:candidateId', (req, res, next) => {
 
 //post candidate
 originRouter.post('/', (req, res, next) => {
+    req.body.user = req.auth._id
      const newCandidate = new Candidate(req.body)
      newCandidate.save((err, savedCandidate) => {
         if(err){
