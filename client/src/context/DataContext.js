@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios"
+import { useParams } from "react-router-dom"
 
 export const DataContext = React.createContext()
 
@@ -13,7 +14,10 @@ userAxios.interceptors.request.use(config => {
 
 
 
+
 export default function DataContextProvider(props){
+
+    // const { _id } = useParams()
 
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {}, 
@@ -83,7 +87,8 @@ export default function DataContextProvider(props){
     }
     
     function getOneCandidate(_id){
-        userAxios.get(`api/candidates/${_id}`)
+        // const { _id } = useParams()
+        userAxios.get(`api/canidates/candidateCard/${_id}`)
         .then(res => setOneCandidate(res.data))
         .catch(err => console.log(err.response.data.errMsg))
     }

@@ -1,4 +1,5 @@
 import React, {useState, useContext} from "react"
+import { Navigate, useNavigate } from "react-router-dom"
 import { DataContext } from "../context/DataContext"
 import "../css/form.css"
 import CandidateInfo from "./CandidateInfo"
@@ -10,6 +11,7 @@ export default function AddCandidateForm(props){
         offerSent: props.offerSent === false ? false : true, hireDate: props.hireDate || "", status: props.status || "",
     }
 
+    const navigate = useNavigate()
    
     const [inputs, setInputs] = useState(initInputs)
     
@@ -29,6 +31,7 @@ export default function AddCandidateForm(props){
         e.preventDefault()
         setInputs(initInputs)
         props.submit(inputs, props._id)
+        navigate("/candidateList")
     //     props.toggle()
     }
 

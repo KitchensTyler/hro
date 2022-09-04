@@ -7,7 +7,7 @@ import "../css/info.css"
 const CandidateInfo = (props) => {
 
     const navigate = useNavigate()
-    const {updates} = useParams()
+    const {updates, _id } = useParams()
   
 
     const {deleteCandidate, editCandidate, setUpdateCandidate} = useContext(DataContext)
@@ -22,7 +22,6 @@ const CandidateInfo = (props) => {
         followUpInterview,
         offerSent,
         hireDate,
-        _id,
         status
     }= props
 

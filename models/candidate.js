@@ -40,6 +40,7 @@ const candidateSchema = new Schema({
     },
     status: {
         type: String,
+        default: 'NEW'
     },
     user: {
         type: Schema.Types.ObjectId,

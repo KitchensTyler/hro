@@ -2,9 +2,11 @@ import React, {useState, useContext, useEffect} from "react"
 import { DataContext } from "../context/DataContext"
 import Candidate from "./Candidate"
 import "../css/list.css"
+import {useParams} from 'react-router-dom'
 
 function CandidateList(){
 
+    const { _id } = useParams()
     const {getCandidates, candidates, searchCandidates} = useContext(DataContext)
     const [input, setInput] = useState({name:''})
 

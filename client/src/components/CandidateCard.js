@@ -7,8 +7,8 @@ import CandidateInfo from "./CandidateInfo"
 
 export default function CandidateCard(props){
 
-    const { _id } = props
-    const { getOneCandidate, oneCandidate, candidates } = useContext(DataContext)
+    const { _id } = useParams()
+    const { getOneCandidate, oneCandidate, candidates, getCandidates } = useContext(DataContext)
     
     useEffect(() => {
         getOneCandidate(_id)

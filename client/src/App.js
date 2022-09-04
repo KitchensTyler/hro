@@ -51,7 +51,7 @@ export default function App() {
             }
             /> 
 
-            <Route path="/candidateList/:_id/" 
+            <Route path="api/candidateCard/:_id" 
             element = {
               <CandidateCard />
             }/>
