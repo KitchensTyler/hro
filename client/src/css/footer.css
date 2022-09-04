@@ -15,7 +15,7 @@ body {
     height:30px;
     font-size: 10px;
     display:flex;
-    justify-content: center; 
+    justify-content: space-evenly; 
     background: linear-gradient(180deg, rgb(213, 210, 206) 10%, rgb(58, 56, 50) 60%, rgba(8,1,13,1) 100%);
     color:rgb(0, 0, 0);
     text-shadow: 0px 0px 2px black;

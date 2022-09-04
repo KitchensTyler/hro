@@ -7,7 +7,7 @@ const Candidate = (props) => {
   return (
     <>
       < div className="card">
-        <Link className='can-card' to = {`/api/candidateCard/${_id}`} style={{textDecoration:"none", color:"white"}}><h2>{fullName}</h2></Link>
+        <Link className='can-card' to = {`/${_id}`} style={{textDecoration:"none", color:"white"}}><h2>{fullName}</h2></Link>
         <p> Id: {_id}</p>
       </div>
     </>

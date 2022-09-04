@@ -8,7 +8,7 @@ export default function AddCandidateForm(props){
     const initInputs = {
         fullName: props.fullName || "", applicationDate: props.applicationDate || "", applicationReviewed: props.applicationReviewed === false ? false : true,
         resumeSubmitted: props.resumeSubmitted === false ? false : true, coverLetterSubmitted: props.coverLetterSubmitted === false ? false : true, initialInterview: props.initialInterview || "", followUpInterview: props.followUpInterview || "", 
-        offerSent: props.offerSent === false ? false : true, hireDate: props.hireDate || "", status: props.status || "",
+        offerSent: props.offerSent === false ? false : true, hireDate: props.hireDate || "", 
     }
 
     const navigate = useNavigate()
@@ -120,17 +120,6 @@ export default function AddCandidateForm(props){
                         value={inputs.hireDate}
                         onChange={handleChange} /> 
                 </div>
-                {/* <div className="input">
-                    <label for="status"> Status: </label>
-                    <select name = "status"
-                        value={inputs.status}
-                        onChange={handleChange}
-                        className='form-select'>
-                            <option value="NEW"> New </option>    
-                            <option value="IN PROGRESS"> In Progress </option>
-                            <option value="COMPLETED"> Completed </option>
-                    </select> 
-                </div> */}
                 <button>{props.btnText}</button>
             </form>
         </div>

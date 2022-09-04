@@ -88,7 +88,7 @@ export default function DataContextProvider(props){
     
     function getOneCandidate(_id){
         // const { _id } = useParams()
-        userAxios.get(`api/canidates/candidateCard/${_id}`)
+        userAxios.get(`api/candidates/candidateCard/${_id}`)
         .then(res => setOneCandidate(res.data))
         .catch(err => console.log(err.response.data.errMsg))
     }
@@ -128,7 +128,7 @@ export default function DataContextProvider(props){
     }
 
     function editCandidate(updates, candidateId){
-        axios.put(`/candidates/${candidateId}`, updates)
+        axios.put(`/api/candidates/${candidateId}`, updates)
         .then(res => {
             setCandidates(prevCandidates => prevCandidates.map(candidate => candidate._id !== candidateId ? candidate : res.data))
         })

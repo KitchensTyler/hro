@@ -1,10 +1,12 @@
 import React, { useContext, } from "react"
 import "../css/home.css"
 import { DataContext } from '../context/DataContext'
+import CandidateList from "./CandidateList"
 
 export default function Home(){
     
-    const {  user: {username}} = useContext(DataContext)
+    const {  candidates ,user: {username}} = useContext(DataContext)
+  
 
     return(
 
@@ -13,7 +15,7 @@ export default function Home(){
         <div className="home">
             <div className="home--content">
                 <h1 className="title">Welcome, {username}!</h1>
-                <h4>Theres Currently {}, New Candidates to View</h4>
+                <h4>Theres currently {candidates.length}, Tracked candidates</h4>
                 <hr/>
                 <div className="mission">
                     <h3>Our Mission</h3>

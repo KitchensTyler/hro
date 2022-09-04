@@ -19,7 +19,7 @@ app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }
 app.use('/api/user', require('./routes/userRouter.js'))
 app.use('/api/candidates', require('./routes/originRouter.js'))
 app.use('/api/candidates/comments', require('./routes/commentRouter.js'))
-app.use('/api/candidates/candiateCard', require('./routes/originRouter.js'))
+app.use('/api/candidates/candidateCard', require('./routes/originRouter.js'))
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000" ); // update to match the domain you will make the request from

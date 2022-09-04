@@ -38,9 +38,8 @@ const candidateSchema = new Schema({
         type:Date,
         default: Date.now
     },
-    status: {
-        type: String,
-        default: 'NEW'
+    green: {
+       type: Boolean,
     },
     user: {
         type: Schema.Types.ObjectId,

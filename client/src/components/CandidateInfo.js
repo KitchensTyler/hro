@@ -7,7 +7,7 @@ import "../css/info.css"
 const CandidateInfo = (props) => {
 
     const navigate = useNavigate()
-    const {updates, _id } = useParams()
+    const { _id } = useParams()
   
 
     const {deleteCandidate, editCandidate, setUpdateCandidate} = useContext(DataContext)
@@ -22,7 +22,8 @@ const CandidateInfo = (props) => {
         followUpInterview,
         offerSent,
         hireDate,
-        status
+        green,
+        updates,
     }= props
 
     const [editToggle, setEditToggle] = useState(false)
@@ -45,7 +46,7 @@ const CandidateInfo = (props) => {
                 followUpInterview: "",
                 offerSent: "",
                 hireDate: "",
-                status
+                green: "",
             })
             setEditToggle(false)
         }
@@ -86,7 +87,6 @@ const CandidateInfo = (props) => {
                 <div>
                     <p> Was an offer letter sent? {offerSent ? "Yes" : "No"} </p>
                     <p> Effective Hire Date: {new Date(hireDate).toLocaleDateString()} </p>
-                    <p> Status : {status} </p>
                 </div>
                 <hr/>
                 <div className="buttons">
