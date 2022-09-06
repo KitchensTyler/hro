@@ -37,24 +37,27 @@ export default function App() {
             element = {<ProtectedRoute token={token} redirectTo="/">
               <Home />
             </ProtectedRoute>
-            }/>
+            }
+            />
 
             <Route path="/add" 
             element = {<ProtectedRoute token={token} redirectTo="/">
               <AddCandidateForm submit={addCandidate} btnText="Add Candidate"/>
             </ProtectedRoute>
-            }/>
+            }
+            />
 
             <Route path="/candidateList" 
-            element = {
+            element = { <ProtectedRoute token={token} redirectTo="/">
               <CandidateList submit={changeCandidate} /> 
-            }
+              </ProtectedRoute> }
             /> 
 
             <Route path="/:_id" 
-            element = {
+            element = { <ProtectedRoute token={token} redirectTo="/">
               <CandidateCard submit={changeCandidate} />
-            }/>
+              </ProtectedRoute> }
+              />
 
           </Routes>
           </div>
